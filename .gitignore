@@ -1,0 +1,12 @@
+#
+#Qt build directories
+#
+
+build-TicTacToeServer-*
+
+#
+#Qt project config directories
+#
+
+*pro.user
+*user
