@@ -1,14 +1,11 @@
 #ifndef TICTACTOESERVER_H
 #define TICTACTOESERVER_H
 
-#include <QCoreApplication>
 #include <QObject>
-#include <QTcpServer>
-#include "controller.h"
-#include "connection.h"
 
-#include <iostream>
-#include <memory>
+class Connection;
+class RequestHandler;
+class QTcpServer;
 
 class TicTacToeServer : public QObject
 {
@@ -22,7 +19,7 @@ public slots:
 //    void onAcceptError(QAbstractSocket::SocketError socketError);
 
 private:
-    Controller * m_requestHandler;
+    RequestHandler * m_requestHandler;
     QTcpServer * m_server;
 };
 

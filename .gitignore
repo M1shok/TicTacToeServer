@@ -2,7 +2,7 @@
 #Qt build directories
 #
 
-build-TicTacToeServer-*
+build*/
 
 #
 #Qt project config directories
@@ -10,3 +10,4 @@ build-TicTacToeServer-*
 
 *pro.user
 *user
+*autosave

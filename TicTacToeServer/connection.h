@@ -2,10 +2,13 @@
 #define CONNECTION_H
 
 #include <QObject>
-#include <QTcpSocket>
-#include "request.h"
-
 #include <memory>
+
+class Reply;
+class QTcpSocket;
+class TestRequest;
+class UnknownRequest;
+class Request;
 
 class Connection : public QObject
 {
@@ -16,9 +19,10 @@ public:
 
 public slots:
     void onReadyRead();
+    void onReplyReady(std::shared_ptr<Reply> reply);
 
 signals:
-    void requestOpened(std::shared_ptr<Request> const request);
+    void requestReady(std::shared_ptr<Request> request);
 
 private:
     QTcpSocket *m_client;
