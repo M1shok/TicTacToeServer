@@ -2,12 +2,16 @@
 #define REQUEST_H
 
 #include <QByteArray>
-#include <QJsonDocument>
+
+class RequestHandler;
+class Connection;
 
 class Request
 {
 public:
-    Request(QByteArray const & requestData);
+    Request(QByteArray const & requestData, Connection* sender);
+    virtual ~Request() = 0;
+    virtual void handle(RequestHandler* handler) = 0;
 
     enum class Type
     {
@@ -17,7 +21,7 @@ public:
 
 private:
     QByteArray m_data;
-    Type m_type;
+    Connection* m_sender;
 };
 
 #endif // REQUEST_H

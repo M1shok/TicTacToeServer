@@ -17,10 +17,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         connection.cpp \
-        controller.cpp \
         main.cpp \
         reply.cpp \
-        request.cpp \
+        requesthandler.cpp \
+        requests/request.cpp \
+        requests/testrequest.cpp \
+        requests/unknownrequest.cpp \
         tictactoeserver.cpp
 
 # Default rules for deployment.
@@ -28,13 +30,11 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-#SUBDIRS += \
-#        model \
-#        controlZler
-
 HEADERS += \
     connection.h \
-    controller.h \
     reply.h \
-    request.h \
+    requesthandler.h \
+    requests/request.h \
+    requests/testrequest.h \
+    requests/unknownrequest.h \
     tictactoeserver.h

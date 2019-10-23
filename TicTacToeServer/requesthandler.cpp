@@ -1,16 +1,22 @@
-#include "controller.h"
+#include "requesthandler.h"
+#include "requests/request.h"
 
-Controller::Controller(QObject *parent) : QObject(parent)
+RequestHandler::RequestHandler(QObject *parent) : QObject(parent)
 {
 
 }
 
-void Controller::onRequestOpened(const std::shared_ptr<Request> request)
+void RequestHandler::handle(std::shared_ptr<Request> request)
 {
-    Connection * client = static_cast<Connection *>(sender());
+    request->handle(this);
+}
 
-    if (client == nullptr)
-    {
-        return;
-    }
+void RequestHandler::handle(std::shared_ptr<UnknownRequest> request)
+{
+
+}
+
+void RequestHandler::onRequestReady(std::shared_ptr<Request> request)
+{
+    handle(request);
 }

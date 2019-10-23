@@ -1,11 +1,16 @@
+#include <QCoreApplication>
+#include <QTcpServer>
+#include <iostream>
 #include "tictactoeserver.h"
+#include "requesthandler.h"
+#include "connection.h"
 
 TicTacToeServer::TicTacToeServer(QObject *parent) : QObject(parent)
 {
     const int port = 15678;
 
     m_server = new QTcpServer(this);
-    m_requestHandler = new Controller(this);
+    m_requestHandler = new RequestHandler(this);
 
     connect(m_server, &QTcpServer::newConnection,
             this,     &TicTacToeServer::onNewConnection);
@@ -19,9 +24,9 @@ TicTacToeServer::TicTacToeServer(QObject *parent) : QObject(parent)
 
 void TicTacToeServer::onNewConnection()
 {
-    QTcpSocket* client = m_server->nextPendingConnection();
-    Connection *newConnection = new Connection(client, this);
+    QTcpSocket * client = m_server->nextPendingConnection();
+    Connection * newConnection = new Connection(client, this);
 
-    connect(newConnection,     &Connection::requestOpened,
-            m_requestHandler,  &Controller::onRequestOpened);
+    connect(newConnection,     &Connection::requestReady,
+            m_requestHandler,  &RequestHandler::onRequestReady);
 }

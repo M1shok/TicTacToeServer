@@ -1,13 +1,17 @@
 #include "connection.h"
+#include <QTcpSocket>
+#include "reply.h"
+#include "requests/testrequest.h"
+#include "requests/unknownrequest.h"
 
 Connection::Connection(QTcpSocket *client, QObject *parent) : QObject(parent)
 {
     m_client = client;
     connect(m_client, &QTcpSocket::readyRead,
-            this,   &Connection::onReadyRead);
+            this,     &Connection::onReadyRead);
 
     connect(m_client, &QTcpSocket::disconnected,
-            this,   &Connection::deleteLater);
+            this,     &Connection::deleteLater);
 }
 
 Connection::~Connection()
@@ -18,5 +22,12 @@ Connection::~Connection()
 
 void Connection::onReadyRead()
 {
-    sender();
+    QByteArray data = m_client->readAll();
+    std::shared_ptr<Request> request = std::make_shared<UnknownRequest>(data, this);
+    emit requestReady(request);
+}
+
+void Connection::onReplyReady(std::shared_ptr<Reply> reply)
+{
+
 }
