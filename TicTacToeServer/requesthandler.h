@@ -7,6 +7,7 @@
 class Request;
 class UnknownRequest;
 class TestRequest;
+class Reply;
 
 class RequestHandler : public QObject
 {
@@ -14,8 +15,8 @@ class RequestHandler : public QObject
 public:
     explicit RequestHandler(QObject *parent = nullptr);
 
-    void handle(std::shared_ptr<Request> request);
-    void handle(std::shared_ptr<UnknownRequest> request);
+    Reply handle(std::shared_ptr<TestRequest> request);
+    Reply handle(std::shared_ptr<UnknownRequest> request);
 
 public slots:
     void onRequestReady(std::shared_ptr<Request> request);
