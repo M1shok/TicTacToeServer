@@ -5,10 +5,8 @@
 #include "requesthandler.h"
 #include "connection.h"
 
-TicTacToeServer::TicTacToeServer(QObject *parent) : QObject(parent)
+TicTacToeServer::TicTacToeServer(quint16 port, QObject *parent) : QObject(parent)
 {
-    const int port = 15678;
-
     m_server = new QTcpServer(this);
     m_requestHandler = new RequestHandler(this);
 
