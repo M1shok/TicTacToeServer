@@ -12,7 +12,7 @@ class TicTacToeServer : public QObject
     Q_OBJECT
 
 public:
-    explicit TicTacToeServer(QObject *parent = nullptr);
+    explicit TicTacToeServer(quint16 port, QObject *parent = nullptr);
 
 public slots:
     void onNewConnection();
