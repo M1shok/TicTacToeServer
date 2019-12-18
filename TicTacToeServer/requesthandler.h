@@ -14,7 +14,7 @@ class RequestHandler : public QObject
 public:
     explicit RequestHandler(QObject *parent = nullptr);
 
-    void handle(std::shared_ptr<Request> request);
+    void handle(std::shared_ptr<TestRequest> request);
     void handle(std::shared_ptr<UnknownRequest> request);
 
 public slots:

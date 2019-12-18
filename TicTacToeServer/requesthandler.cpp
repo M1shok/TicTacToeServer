@@ -6,7 +6,7 @@ RequestHandler::RequestHandler(QObject *parent) : QObject(parent)
 
 }
 
-void RequestHandler::handle(std::shared_ptr<Request> request)
+void RequestHandler::handle(std::shared_ptr<TestRequest> request)
 {
     request->handle(this);
 }
