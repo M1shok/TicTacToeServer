@@ -19,7 +19,9 @@ SOURCES += \
         connection.cpp \
         main.cpp \
         reply.cpp \
+        requestfactory.cpp \
         requesthandler.cpp \
+        requests/invalidrequest.cpp \
         requests/request.cpp \
         requests/testrequest.cpp \
         requests/unknownrequest.cpp \
@@ -33,7 +35,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     connection.h \
     reply.h \
+    requestfactory.h \
     requesthandler.h \
+    requests.h \
+    requests/invalidrequest.h \
     requests/request.h \
     requests/testrequest.h \
     requests/unknownrequest.h \

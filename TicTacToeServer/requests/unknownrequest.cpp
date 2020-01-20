@@ -2,8 +2,8 @@
 #include "requesthandler.h"
 #include "reply.h"
 
-UnknownRequest::UnknownRequest(const QByteArray &data, Connection *connection)
-    : Request(data, connection)
+UnknownRequest::UnknownRequest(Connection *connection)
+    : Request(connection)
 {
 
 }

@@ -6,7 +6,7 @@
 class TestRequest : public Request
 {
 public:
-    TestRequest(QByteArray &data, Connection* sender);
+    TestRequest(Connection* sender);
     ~TestRequest() override;
     Reply handle(RequestHandler *handler) override;
 };

@@ -1,9 +1,8 @@
 #include "request.h"
 
-Request::Request(QByteArray const & requestData, Connection *sender)
+Request::Request(Connection *sender)
+    : m_sender(sender)
 {
-    m_data = requestData;
-    m_sender = sender;
 }
 
 Request::~Request()

@@ -6,7 +6,7 @@
 class UnknownRequest : public Request
 {
 public:
-    UnknownRequest(QByteArray const &data, Connection* connection);
+    UnknownRequest(Connection* connection);
     ~UnknownRequest() override;
     virtual Reply handle(RequestHandler *handler) override;
 };

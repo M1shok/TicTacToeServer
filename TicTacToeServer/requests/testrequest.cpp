@@ -3,8 +3,8 @@
 #include "requesthandler.h"
 #include "reply.h"
 
-TestRequest::TestRequest(QByteArray &data, Connection* sender)
-    : Request(data, sender)
+TestRequest::TestRequest(Connection* sender)
+    : Request(sender)
 {
 
 }
