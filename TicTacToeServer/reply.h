@@ -6,7 +6,7 @@
 class Reply
 {
 public:
-    Reply(QByteArray const & replyData);
+    Reply(QByteArray const & replyData = QByteArray());
 
 private:
     QByteArray m_data;

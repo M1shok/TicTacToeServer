@@ -1,5 +1,8 @@
 #include "testrequest.h"
 
+#include "requesthandler.h"
+#include "reply.h"
+
 TestRequest::TestRequest(QByteArray &data, Connection* sender)
     : Request(data, sender)
 {
@@ -11,7 +14,7 @@ TestRequest::~TestRequest()
 
 }
 
-void TestRequest::handle(RequestHandler *handler)
+Reply TestRequest::handle(RequestHandler *handler)
 {
-
+    return handler->handle(*this);
 }

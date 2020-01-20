@@ -8,7 +8,7 @@ class TestRequest : public Request
 public:
     TestRequest(QByteArray &data, Connection* sender);
     ~TestRequest() override;
-    void handle(RequestHandler *handler) override;
+    Reply handle(RequestHandler *handler) override;
 };
 
 #endif // TESTREQUEST_H

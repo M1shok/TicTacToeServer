@@ -19,7 +19,7 @@ public:
 
 public slots:
     void onReadyRead();
-    void onReplyReady(std::shared_ptr<Reply> reply);
+    void onReplyReady(const Reply &reply);
 
 signals:
     void requestReady(std::shared_ptr<Request> request);

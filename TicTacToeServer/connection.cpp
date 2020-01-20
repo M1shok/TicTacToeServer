@@ -27,7 +27,7 @@ void Connection::onReadyRead()
     emit requestReady(request);
 }
 
-void Connection::onReplyReady(std::shared_ptr<Reply> reply)
+void Connection::onReplyReady(const Reply & /*reply*/)
 {
 
 }

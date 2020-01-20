@@ -5,13 +5,14 @@
 
 class RequestHandler;
 class Connection;
+class Reply;
 
 class Request
 {
 public:
     Request(QByteArray const & requestData, Connection* sender);
     virtual ~Request() = 0;
-    virtual void handle(RequestHandler* handler) = 0;
+    virtual Reply handle(RequestHandler* handler) = 0;
 
     enum class Type
     {
