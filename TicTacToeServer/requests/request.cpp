@@ -7,6 +7,5 @@ Request::Request(Connection *sender)
 
 Request::~Request()
 {
-
 }
 

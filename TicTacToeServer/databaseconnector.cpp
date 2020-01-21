@@ -24,6 +24,8 @@ bool DatabaseConnector::createPostgreSqlConnection() const
     if (connection.lastError().isValid())
         qDebug() << connection.lastError();
 
+    declareTables();
+
     return opened;
 }
 
