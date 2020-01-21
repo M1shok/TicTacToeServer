@@ -2,6 +2,7 @@
 #define REQUEST_H
 
 #include <QByteArray>
+#include <QUuid>
 
 class RequestHandler;
 class Connection;
@@ -17,6 +18,11 @@ public:
     enum class Type
     {
         Invalid = 0,
+        Test = 1,
+        FindGame = 2,
+        SignIn = 3,
+        SignUpUser = 4,
+        GetStatistics = 5,
         Unknown = 1000
     };
 

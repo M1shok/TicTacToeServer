@@ -31,6 +31,15 @@ std::shared_ptr<Request> RequestFactory::createRequest(const QByteArray &data, C
 
     switch (requestType)
     {
+    case Request::Type::FindGame:
+
+    case Request::Type::GetStatistics:
+
+    case Request::Type::Test:
+
+    case Request::Type::SignIn:
+
+    case Request::Type::SignUpUser:
     }
     return std::make_shared<UnknownRequest>();
 }

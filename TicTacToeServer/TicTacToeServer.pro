@@ -1,5 +1,6 @@
 QT -= gui
 QT += network
+QT += sql
 
 CONFIG += c++14 console
 CONFIG -= app_bundle
@@ -17,12 +18,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         connection.cpp \
+        databaseconnector.cpp \
         main.cpp \
         reply.cpp \
         requestfactory.cpp \
         requesthandler.cpp \
+        requests/findgamerequest.cpp \
+        requests/getstatisticsrequest.cpp \
         requests/invalidrequest.cpp \
         requests/request.cpp \
+        requests/signinrequest.cpp \
+        requests/signupuserrequest.cpp \
         requests/testrequest.cpp \
         requests/unknownrequest.cpp \
         tictactoeserver.cpp
@@ -34,12 +40,18 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     connection.h \
+    databaseconnector.h \
     reply.h \
     requestfactory.h \
     requesthandler.h \
     requests.h \
+    requests/findgamerequest.h \
+    requests/getstatisticsrequest.h \
     requests/invalidrequest.h \
     requests/request.h \
+    requests/signinrequest.h \
+    requests/signupuserrequest.h \
     requests/testrequest.h \
     requests/unknownrequest.h \
-    tictactoeserver.h
+    tictactoeserver.h \
+    tttnamespace.h
