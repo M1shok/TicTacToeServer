@@ -3,6 +3,7 @@
 #include "reply.h"
 #include "requests/testrequest.h"
 #include "requests/unknownrequest.h"
+#include "requestfactory.h"
 
 Connection::Connection(QTcpSocket *client, QObject *parent) : QObject(parent)
 {
@@ -23,7 +24,7 @@ Connection::~Connection()
 void Connection::onReadyRead()
 {
     QByteArray data = m_client->readAll();
-    std::shared_ptr<Request> request = std::make_shared<UnknownRequest>(data, this);
+    std::shared_ptr<Request> request = RequestFactory::createRequest(data, this);
     emit requestReady(request);
 }
 

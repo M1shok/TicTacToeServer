@@ -10,7 +10,7 @@ public:
     bool declareTables() const;
 
 private:
-    bool createTableUser() const;
+    bool createTableUsers() const;
 };
 
 #endif // DATABASECONNECTOR_H

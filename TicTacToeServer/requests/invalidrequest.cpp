@@ -1,5 +1,6 @@
 #include "invalidrequest.h"
 #include "requesthandler.h"
+#include "reply.h"
 
 InvalidRequest::InvalidRequest(Connection *connection)
     : Request(connection)
@@ -7,7 +8,12 @@ InvalidRequest::InvalidRequest(Connection *connection)
 
 }
 
+InvalidRequest::~InvalidRequest()
+{
+
+}
+
 Reply InvalidRequest::handle(RequestHandler *handler)
 {
-    handler->handle(*this);
+    return handler->handle(*this);
 }

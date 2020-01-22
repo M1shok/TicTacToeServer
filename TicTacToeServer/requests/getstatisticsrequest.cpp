@@ -1,5 +1,6 @@
 #include "getstatisticsrequest.h"
 #include "requesthandler.h"
+#include "reply.h"
 
 GetStatisticsRequest::GetStatisticsRequest(Connection *sender, const QString &userLogin, const QUuid &authToken)
     : Request(sender)
@@ -16,7 +17,7 @@ GetStatisticsRequest::~GetStatisticsRequest()
 
 Reply GetStatisticsRequest::handle(RequestHandler *handler)
 {
-    handler->handle(*this);
+    return handler->handle(*this);
 }
 
 QUuid GetStatisticsRequest::authToken() const

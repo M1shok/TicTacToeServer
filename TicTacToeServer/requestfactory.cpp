@@ -21,7 +21,7 @@ std::shared_ptr<Request> RequestFactory::createRequest(const QByteArray &data, C
 
     if (!document.isObject())
     {
-        return std::make_shared<InvalidRequest>();
+        return std::make_shared<InvalidRequest>(sender);
     }
 
     QJsonObject requestObject = document.object();
@@ -40,6 +40,9 @@ std::shared_ptr<Request> RequestFactory::createRequest(const QByteArray &data, C
     case Request::Type::SignIn:
 
     case Request::Type::SignUpUser:
+    case Request::Type::Unknown:
+    case Request::Type::Invalid:
+        break;
     }
-    return std::make_shared<UnknownRequest>();
+    return std::make_shared<UnknownRequest>(sender);
 }

@@ -4,6 +4,7 @@
 #include "tictactoeserver.h"
 #include "requesthandler.h"
 #include "connection.h"
+#include "databaseconnector.h"
 
 TicTacToeServer::TicTacToeServer(quint16 port, QObject *parent) : QObject(parent)
 {
@@ -16,6 +17,14 @@ TicTacToeServer::TicTacToeServer(quint16 port, QObject *parent) : QObject(parent
     if (!m_server->listen(QHostAddress::Any, port))
     {
         std::cerr << "Server is not started. Cannot listn to port " << port << ".\n";
+        exit(0);
+    }
+
+    DatabaseConnector dbConnector;
+
+    if (!dbConnector.createPostgreSqlConnection())
+    {
+        std::cerr << "Server is not started. Cannot create postgresql connection.";
         exit(0);
     }
 }

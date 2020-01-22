@@ -1,5 +1,6 @@
 #include "signupuserrequest.h"
 #include "requesthandler.h"
+#include "reply.h"
 
 SignUpUserRequest::SignUpUserRequest(Connection *sender,
                                      const QString &userLogin,
@@ -18,7 +19,7 @@ SignUpUserRequest::~SignUpUserRequest()
 
 Reply SignUpUserRequest::handle(RequestHandler *handler)
 {
-    handler->handle(*this);
+    return handler->handle(*this);
 }
 
 QString SignUpUserRequest::userLogin() const

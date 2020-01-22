@@ -6,10 +6,10 @@
 namespace ttt
 {
     const QString connectionName = "TicTacToeConnection";
-
-    namespace User
+    const QString databaseName = "tic_tac_toe";
+    namespace Users
     {
-        const QString tableName = "user";
+        const QString tableName = "users";
 
         const QString id = "id";
         const QString userLogin = "login";
