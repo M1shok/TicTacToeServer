@@ -12,8 +12,8 @@ public:
     ~SignInRequest() override;
 
     Reply handle(RequestHandler *handler) override;
-    QString login() const;
-    QString password() const;
+    QString userLogin() const;
+    QString userPassword() const;
 
 private:
     const QString m_userLogin;

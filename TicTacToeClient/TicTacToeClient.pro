@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,17 +17,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     authorizationdialog.cpp \
+    gamewidget.cpp \
     main.cpp \
     mainwindow.cpp \
     registrationdialog.cpp
 
 HEADERS += \
     authorizationdialog.h \
+    gamewidget.h \
     mainwindow.h \
+    networktypes.h \
     registrationdialog.h
 
 FORMS += \
     authorizationdialog.ui \
+    gamewidget.ui \
     mainwindow.ui \
     registrationdialog.ui
 

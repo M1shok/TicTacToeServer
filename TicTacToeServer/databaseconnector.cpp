@@ -47,7 +47,7 @@ bool DatabaseConnector::createTableUsers() const
                                   " %2 SERIAL, "
                                   " %3 VARCHAR(32) UNIQUE, "
                                   " %4 VARCHAR(32), "
-                                  " %5 VARCHAR(32)"
+                                  " %5 VARCHAR(64)"
                                   ");")
             .arg(ttt::Users::tableName)
             .arg(ttt::Users::id)

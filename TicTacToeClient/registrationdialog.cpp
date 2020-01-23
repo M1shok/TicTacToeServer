@@ -12,3 +12,13 @@ RegistrationDialog::~RegistrationDialog()
 {
     delete ui;
 }
+
+QString RegistrationDialog::userLogin() const
+{
+    return ui->leLogin->text();
+}
+
+QString RegistrationDialog::userPassword() const
+{
+    return ui->lePassword->text();
+}

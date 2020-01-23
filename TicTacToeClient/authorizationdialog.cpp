@@ -12,3 +12,13 @@ AuthorizationDialog::~AuthorizationDialog()
 {
     delete ui;
 }
+
+QString AuthorizationDialog::userLogin() const
+{
+    return ui->leLogin->text();
+}
+
+QString AuthorizationDialog::userPassword() const
+{
+    return ui->lePassword->text();
+}

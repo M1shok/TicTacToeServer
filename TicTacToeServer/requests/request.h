@@ -26,6 +26,8 @@ public:
         Unknown = 1000
     };
 
+    Connection * sender() const;
+
 private:
     Connection* m_sender;
 };

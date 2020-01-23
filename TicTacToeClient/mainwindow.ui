@@ -16,24 +16,6 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QPushButton" name="pbFindGame">
-        <property name="text">
-         <string>Find Game</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pbProfile">
-        <property name="text">
-         <string>Profile</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="layoutDirection">
        <enum>Qt::LeftToRight</enum>
@@ -44,7 +26,7 @@
       <widget class="QWidget" name="pageAuthorization">
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="pbSignIn">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
             <horstretch>0</horstretch>
@@ -52,12 +34,12 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>PushButton</string>
+           <string>Sign In</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="pbSignUp">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -65,7 +47,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>PushButton</string>
+           <string>Sign Up</string>
           </property>
          </widget>
         </item>
@@ -74,17 +56,49 @@
       <widget class="QWidget" name="pageMain">
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QPushButton" name="pbFindGame">
+            <property name="text">
+             <string>Find Game</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pbProfile">
+            <property name="text">
+             <string>Profile</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pbLogOut">
+            <property name="text">
+             <string>Log Out</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
          <widget class="QTabWidget" name="tabWidget">
+          <property name="tabletTracking">
+           <bool>false</bool>
+          </property>
           <property name="tabPosition">
            <enum>QTabWidget::North</enum>
           </property>
           <property name="currentIndex">
            <number>0</number>
           </property>
+          <property name="tabsClosable">
+           <bool>true</bool>
+          </property>
           <widget class="QWidget" name="tab">
            <attribute name="title">
             <string>GAME with opponent NickName</string>
            </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_3"/>
           </widget>
           <widget class="QWidget" name="tab_2">
            <attribute name="title">
@@ -105,7 +119,7 @@
      <x>0</x>
      <y>0</y>
      <width>819</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

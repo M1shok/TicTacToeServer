@@ -22,12 +22,12 @@ Reply SignInRequest::handle(RequestHandler *handler)
     return handler->handle(*this);
 }
 
-QString SignInRequest::password() const
+QString SignInRequest::userPassword() const
 {
     return m_userPassword;
 }
 
-QString SignInRequest::login() const
+QString SignInRequest::userLogin() const
 {
     return m_userLogin;
 }

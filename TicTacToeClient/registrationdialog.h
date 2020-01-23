@@ -15,6 +15,9 @@ public:
     explicit RegistrationDialog(QWidget *parent = nullptr);
     ~RegistrationDialog();
 
+    QString userLogin() const;
+    QString userPassword() const;
+
 private:
     Ui::RegistrationDialog *ui;
 };

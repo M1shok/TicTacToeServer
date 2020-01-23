@@ -15,6 +15,9 @@ public:
     explicit AuthorizationDialog(QWidget *parent = nullptr);
     ~AuthorizationDialog();
 
+    QString userLogin() const;
+    QString userPassword() const;
+
 private:
     Ui::AuthorizationDialog *ui;
 };

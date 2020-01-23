@@ -28,9 +28,9 @@ void Connection::onReadyRead()
     emit requestReady(request);
 }
 
-void Connection::onReplyReady(const Reply & /*reply*/)
+void Connection::onReplyReady(const Reply & reply)
 {
-
+    m_client->write(reply.data(), reply.data().size());
 }
 
 
