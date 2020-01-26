@@ -102,7 +102,7 @@ Reply RequestHandler::handle(const SignUpUserRequest &request)
     record.setValue(ttt::Users::userPassword,
                     request.userPassword());
     record.setValue(ttt::Users::authToken,
-                    QUuid::createUuid().toString(QUuid::StringFormat::WithoutBraces));
+                    QUuid::createUuid().toString());
 
     if (m_model->insertRecord(-1, record))
     {
@@ -125,9 +125,9 @@ Reply RequestHandler::handle(const FindGameRequest &request)
     replyObject.insert("type", static_cast<int>(Reply::Type::FindGame));
 
     m_model->setTable(ttt::Users::tableName);
-    m_model->setFilter(QString("'%1'='%2'"
+    m_model->setFilter(QString("%1='%2'"
                                " and "
-                               "'%3'='%4'")
+                               "%3='%4'")
                        .arg(ttt::Users::userLogin)
                        .arg(request.userLogin())
                        .arg(ttt::Users::authToken)
@@ -153,6 +153,7 @@ Reply RequestHandler::handle(const FindGameRequest &request)
         addUserToFindGame(request.sender());
     }
 
+    return Reply();
     return Reply(QJsonDocument(replyObject)
                 .toJson(QJsonDocument::JsonFormat::Compact));
 }

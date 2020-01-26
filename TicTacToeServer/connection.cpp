@@ -24,6 +24,7 @@ Connection::~Connection()
 void Connection::onReadyRead()
 {
     QByteArray data = m_client->readAll();
+    qDebug() << "Received: " << data;
     std::shared_ptr<Request> request = RequestFactory::createRequest(data, this);
     emit requestReady(request);
 }
@@ -31,6 +32,7 @@ void Connection::onReadyRead()
 void Connection::onReplyReady(const Reply & reply)
 {
     m_client->write(reply.data(), reply.data().size());
+    qDebug() << "Sent: " << reply.data();
 }
 
 

@@ -18,7 +18,26 @@
     <layout class="QGridLayout" name="gridLayout"/>
    </item>
    <item>
-    <widget class="QTableWidget" name="tableWidget"/>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="labelStatus">
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Waiting for game start...</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTableWidget" name="tableWidget"/>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

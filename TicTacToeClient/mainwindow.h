@@ -33,7 +33,7 @@ private slots:
     void onSignInReply(const QJsonObject & replyObject);
     void onGameFoundReply(const QJsonObject & replyObject);
     void onFindGameReply(const QJsonObject & replyObject);
-
+    void onTabCloseRequested(int index);
     void onLogIn();
     void onLogOut();
 

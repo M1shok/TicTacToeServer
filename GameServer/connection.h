@@ -15,7 +15,7 @@ public slots:
     void onReplyReady(const QByteArray & reply);
 
 signals:
-    void onRequestReady(QByteArray data);
+    void requestReady(QByteArray data);
 
 private:
     QTcpSocket * m_client;

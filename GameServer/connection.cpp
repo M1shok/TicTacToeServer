@@ -13,10 +13,16 @@ Connection::Connection(QTcpSocket *client, QObject *parent)
 void Connection::onReadyRead()
 {
     QByteArray requestData = m_client->readAll();
-    emit onRequestReady(requestData);
+    qDebug() << "Received: " << requestData;
+    emit requestReady(requestData);
 }
 
 void Connection::onReplyReady(const QByteArray &reply)
 {
+    if (reply.size() == 0)
+    {
+        return;
+    }
+    qDebug() << "Sent: " << reply;
     m_client->write(reply, reply.size());
 }

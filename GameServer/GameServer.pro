@@ -18,7 +18,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         connection.cpp \
         gameserver.cpp \
-        main.cpp
+        main.cpp \
+        tictactoeboard.cpp \
+        tictactoegame.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -27,4 +29,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     connection.h \
-    gameserver.h
+    gameserver.h \
+    tictactoeboard.h \
+    tictactoegame.h

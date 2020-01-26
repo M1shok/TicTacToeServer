@@ -10,6 +10,7 @@
 #include "registrationdialog.h"
 
 #include "networktypes.h"
+#include "gamewidget.h"
 
 TicTacToeClient::TicTacToeClient(QWidget *parent)
     : QMainWindow(parent)
@@ -21,12 +22,16 @@ TicTacToeClient::TicTacToeClient(QWidget *parent)
             this,     &TicTacToeClient::onReadyRead);
     m_socket->connectToHost("localhost", 2323);
 
+    connect(ui->tabWidget, &QTabWidget::tabCloseRequested,
+            this,          &TicTacToeClient::onTabCloseRequested);
+
     if (!m_socket->waitForConnected())
     {
         qDebug() << "Connection was not established.";
         exit(-1);
     }
     onLogOut();
+    ui->tabWidget->clear();
 }
 
 TicTacToeClient::~TicTacToeClient()
@@ -74,6 +79,7 @@ void TicTacToeClient::on_pbSignUp_clicked()
 void TicTacToeClient::onReadyRead()
 {
     QByteArray data = m_socket->readAll();
+    qDebug() << "Received: " << data;
     onServerReply(data);
 }
 
@@ -106,7 +112,7 @@ void TicTacToeClient::onServerReply(const QByteArray &reply)
         break;
 
     case ReplyType::GameFound:
-        onFindGameReply(replyObject);
+        onGameFoundReply(replyObject);
         break;
     }
 }
@@ -156,7 +162,9 @@ void TicTacToeClient::onSignInReply(const QJsonObject &replyObject)
 
 void TicTacToeClient::onGameFoundReply(const QJsonObject &replyObject)
 {
-
+    QString status = replyObject.value("status").toString();
+    QString gameId = replyObject.value("gameId").toString();
+    ui->tabWidget->addTab(new GameWidget(3232, gameId), "Game");
 }
 
 void TicTacToeClient::onFindGameReply(const QJsonObject &replyObject)
@@ -170,6 +178,11 @@ void TicTacToeClient::onFindGameReply(const QJsonObject &replyObject)
                                  "Authorization failed. Message: "
                                  + message);
     }
+}
+
+void TicTacToeClient::onTabCloseRequested(int index)
+{
+    ui->tabWidget->removeTab(index);
 }
 
 void TicTacToeClient::onLogIn()
